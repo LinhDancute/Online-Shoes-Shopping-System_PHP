@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, sans-serif, "Apple ColorEmoji", "Segoe UI Emoji",
+    Segoe UI Symbol, "Noto Color Emoji";
+  margin: 0;
+  padding: 0;
+}
+
+.img-magnifier-container {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid #e7e4e4;
+  width: 60%;
+  height: 55%;
+}
+
+.img-magnifier-glass:hover {
+  opacity: 1;
+}
+
+h2 {
+  font-family: Playfair Display, serif;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  cursor: pointer;
+  /*Set the size of the magnifier glass:*/
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.product-detail-section * {
+  margin-bottom: 10px;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+}
+
+.quantity-button {
+  padding: 2% 3%;
+
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(210, 206, 206);
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.quantity-button i {
+  margin: 0;
+  color: #000000;
+}
+
+.quantity * {
+  margin-right: 2%;
+}
+
+#addtocart {
+  border-radius: 5%;
+  background-color: rgb(33, 201, 21);
+  border: none;
+  color: aliceblue;
+  padding: 0 5%;
+  cursor: pointer;
+}
+
+#addtocart:hover {
+  background-color: rgb(50, 137, 44);
+}
+
+.quantity-button:hover {
+  background-color: rgb(50, 137, 44);
+}

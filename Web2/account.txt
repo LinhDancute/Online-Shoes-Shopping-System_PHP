@@ -1,0 +1,6 @@
+email					password		user_type
+
+linhdan11003@gmail.com				   client(googleuser)
+dannguyen112003@gmail.com	123			client
+admin@example.com			123			admin
+dimmi020007@gmail.com		1			NhanVien

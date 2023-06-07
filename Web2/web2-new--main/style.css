@@ -1,0 +1,596 @@
+:root {
+  --my-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue,
+    Arial, sans-serif, "Apple ColorEmoji", "Segoe UI Emoji", Segoe UI Symbol,
+    "Noto Color Emoji";
+  --border-color: rgb(210, 208, 208);
+  --main-color: rgb(65, 224, 25);
+}
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+/* Sticky footer position and size
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 300px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 300px;
+}
+
+/* Taller footer on small screens */
+@media (max-width: 34em) {
+    body {
+      margin-bottom: 500px;
+    }
+    .footer {
+      height: 500px;
+    }
+}
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+  padding-top: 30px;
+  background-color: #292c2f;
+  color: #bbb;
+}
+
+footer a {
+  color: #999;
+  text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+  color: #aaa;
+  text-decoration:none;
+  border-bottom:1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--my-font);
+
+}
+
+.filter-overlay .overlay.active {
+  left: 1px;
+}
+
+.overlay .top-section {
+  border: none;
+  position: relative;
+}
+.overlay .top-section .Search-section {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.overlay .top-section:before {
+  content: "";
+  display: inline;
+  width: 90%;
+  height: 3%;
+  background: rgb(180, 179, 179);
+  left: 5%;
+  bottom: 0;
+  position: absolute;
+  transition: background-color 0.4s;
+}
+
+.overlay .top-section:hover::before {
+  background: black;
+}
+
+.overlay {
+  background-color: white;
+  width: 330px;
+  height: 100%;
+  z-index: 3;
+  position: fixed;
+  padding: 0% 2%;
+  box-sizing: border-box;
+}
+.cart-section .overlay {
+  top: 1px;
+  right: -330px;
+  transition: right 1s;
+}
+.filter-overlay .overlay {
+  top: 1px;
+  left: -330px;
+  transition: left 1s;
+}
+.cart-section .overlay.active {
+  right: 1px;
+}
+.background.active {
+  display: block;
+}
+
+.background {
+  display: none;
+  top: 1px;
+  left: 1px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 2;
+}
+
+.products-section {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 30px;
+  box-sizing: border-box;
+
+  margin-top: 30px;
+}
+
+.product-item {
+  height: 340px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(235, 235, 235);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.img-section {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.product-item img {
+  width: 100%;
+  object-fit: fill;
+  transition: 1s;
+}
+
+.detail-product {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.detail-product a {
+  font-size: 110%;
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+
+.img-section:hover img {
+  transform: rotate(3deg) scale(1.1);
+}
+
+.detail-product a:hover {
+  font-size: 110%;
+  color: #b7447e47;
+}
+
+.img-section:hover .icon-show {
+  bottom: 10%;
+  visibility: visible;
+}
+
+.icon-show a {
+  padding: 5px 15px;
+  background-color: rgb(255, 255, 255);
+  margin-right: 5px;
+}
+
+.icon-show a:hover {
+  background-color: #b7447e47;
+}
+
+.icon-show li {
+  display: inline;
+}
+
+.icon-show {
+  position: absolute;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+  justify-content: center;
+  bottom: -10%;
+  visibility: hidden;
+  width: 100%;
+}
+
+.container-product {
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.block {
+  height: 100%;
+
+  float: left;
+  width: 18%;
+  margin: 0 2%;
+}
+
+.content {
+  height: 1000px;
+  width: 88%;
+  margin: 0 6%;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+.Search-section {
+  margin-left: 4%;
+}
+
+.container-product .top-section {
+  padding: 2%;
+}
+
+.top-section input {
+  border: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+.top-section input:focus {
+  outline: none;
+}
+
+.top-section i {
+  font-size: 110%;
+}
+
+.icon-section {
+  padding: 7% 7%;
+  margin-right: 0px;
+  position: relative;
+  cursor: pointer;
+}
+
+.icon-section::before {
+  content: "";
+  display: inline;
+  width: 3%;
+  height: 60%;
+  background: rgb(210, 208, 208);
+  left: 0;
+  top: 20%;
+  position: absolute;
+}
+
+.list-section {
+  margin-top: 13%;
+  font-family: var(--my-font);
+}
+
+.list-section .title {
+  font-size: 130%;
+  /* font-weight: 330; */
+  margin-bottom: 20px;
+}
+
+.template-list {
+  margin-top: 30px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  font-size: 100%;
+}
+
+.template-list li {
+  list-style-type: none;
+}
+
+.template-list li a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.template-list li a:hover {
+  color: var(--main-color);
+}
+.template-list li a:hover span {
+  background-color: var(--main-color);
+}
+.template-list li a.active {
+  color: var(--main-color);
+}
+.template-list li a.active span {
+  background-color: var(--main-color);
+}
+
+.template-list li a span {
+  padding: 1% 5%;
+  font-size: 90%;
+  background-color: var(--border-color);
+  color: rgb(118, 114, 114);
+  text-align: center;
+  border-radius: 20%;
+}
+
+.template-list li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.top-section {
+  margin-top: 15px;
+  border: 1px var(--border-color) solid;
+  height: 60px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.left-section span {
+  color: rgb(120, 120, 120);
+}
+
+.left-section {
+  margin-left: 1%;
+  width: 29%;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  float: left;
+}
+
+.left-section select {
+  padding: 1% 0%;
+  padding-right: 5%;
+  border: var(--border-color) solid 1px;
+  font-size: 100%;
+  margin-left: 6px;
+  border-radius: 4%;
+}
+
+.left-section select:focus {
+  outline: none;
+}
+
+.right-section {
+  margin-right: 1%;
+  width: 69%;
+  display: flex;
+  flex-direction: row;
+  float: right;
+  justify-content: flex-end;
+}
+
+.price-filter {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.right-section select {
+  padding: 1px 0;
+  padding-right: 5px;
+  border: var(--border-color) solid 1px;
+  font-size: 100%;
+  margin-left: 1%;
+  border-radius: 4%;
+}
+
+.right-section span {
+  font-size: 100%;
+}
+
+.pagination-section {
+  margin-top: 10%;
+  justify-content: center;
+  display: flex;
+}
+
+.filter {
+  margin-right: 3%;
+  color: rgb(82, 82, 82);
+  cursor: pointer;
+  display: none;
+}
+
+.filter:hover {
+  color: aquamarine;
+}
+@media only screen and (min-width: 1250px) and (max-width: 1380px) {
+  .content {
+    box-sizing: border-box;
+    width: 98%;
+    margin: 0 1%;
+  }
+}
+@media only screen and (min-width: 1050px) and (max-width: 1250px) {
+  .content {
+    box-sizing: border-box;
+    width: 98%;
+    margin: 0 1%;
+  }
+
+  .block {
+    width: 15%;
+    margin-right: 1%;
+  }
+  .container-product {
+    width: 82%;
+  }
+}
+
+@media only screen and (min-width: 810px) and (max-width: 1050px) {
+  .content {
+    box-sizing: border-box;
+    width: 98%;
+    margin: 0 1%;
+  }
+  .block {
+    display: none;
+  }
+
+  .price-filter {
+    display: none;
+  }
+
+  .right-section {
+    width: 20%;
+  }
+
+  .filter {
+    display: block;
+  }
+
+  .left-section {
+    width: 98%;
+  }
+
+  .container-product {
+    width: 100%;
+  }
+
+  .content {
+    width: 98%;
+    margin: 0 1%;
+  }
+
+  .products-section {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+
+  .lefrt-section {
+    width: 98%;
+  }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 810px) {
+  .price-filter {
+    display: none;
+  }
+
+  .right-section {
+    width: 20%;
+  }
+
+  .filter {
+    display: block;
+  }
+
+  .block {
+    display: none;
+  }
+
+  .container-product {
+    width: 100%;
+  }
+
+  .content {
+    width: 98%;
+    margin: 0 1%;
+  }
+
+  .products-section {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+
+  .lefrt-section {
+    width: 100%;
+  }
+
+  .product-item img {
+    max-width: 120%;
+  }
+  .products-section {
+    grid-template-rows: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .price-filter {
+    display: none;
+  }
+
+  .right-section {
+    width: 20%;
+  }
+
+  .filter {
+    display: block;
+  }
+
+  .block {
+    display: none;
+  }
+
+  .container-product {
+    width: 100%;
+  }
+
+  .content {
+    width: 98%;
+    margin: 0 1%;
+  }
+
+  .left-section {
+    width: 100%;
+  }
+
+  .products-section {
+    grid-template-columns: auto;
+  }
+
+  .product-item {
+    height: 600px;
+  }
+}

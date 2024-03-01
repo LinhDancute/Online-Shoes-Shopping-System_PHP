@@ -1,6 +1,6 @@
-email					                     password		           user_type
-dannguyen112003@gmail.com		       123			             client
-admin@example.com			             123			             admin
-linhdan11003@gmail.com				     2                     NhanVien
-dannguyen11003@gmail.com	         			                 client (google account)
+email,password, các người dùng
+dannguyen112003@gmail.com ,123,client
+admin@example.com, 123, admin
+linhdan11003@gmail.com, 2, NhanVien
+dannguyen11003@gmail.com,client (google account)
 
